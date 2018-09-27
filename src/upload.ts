@@ -3,7 +3,7 @@
 import * as Busboy from 'busboy'
 import * as config from 'config'
 import {createHash} from 'crypto'
-import {Client, Signature} from 'dsteem'
+import {Client, Signature} from 'dpayts'
 import * as http from 'http'
 import * as Koa from 'koa'
 import * as multihash from 'multihashes'

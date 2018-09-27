@@ -2,12 +2,12 @@
 
 import {AbstractBlobStore} from 'abstract-blob-store'
 import * as config from 'config'
-import {Client} from 'dsteem'
+import {Client} from 'dpayts'
 import * as Redis from 'redis'
 
 import {logger} from './logger'
 
-/** Steemd (jussi) RPC client. */
+/** Dpayd (jefferson) RPC client. */
 export const rpcClient = new Client(config.get('rpc_node'))
 
 /** Redis client. */

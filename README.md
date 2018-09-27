@@ -2,7 +2,7 @@
 imagehoster
 ===========
 
-Steem-powered image hosting and proxying service.
+dPay-powered image hosting and proxying service.
 
 
 Developing
@@ -55,7 +55,7 @@ Returns a JSON object containing the url to the uploaded image, example:
 }
 ```
 
-Requires a signature from a Steem account in good standing, see the "Signing uploads" section below for more information.
+Requires a signature from a dPay account in good standing, see the "Signing uploads" section below for more information.
 
 
 #### `GET /<image_hash>/[<filename>]` - fetch an uploaded image.
@@ -87,7 +87,7 @@ Note that the avatars follow the same sizing rules as proxied images, so you are
 Signing uploads
 ---------------
 
-Uploads require a signature made with by a Steem account's posting authority, further that account has to be above a (service configurable) reputation threshold.
+Uploads require a signature made with by a dPay account's posting authority, further that account has to be above a (service configurable) reputation threshold.
 
 Creating a signature (psuedocode):
 
@@ -95,12 +95,12 @@ Creating a signature (psuedocode):
 signature = secp256k1_sign(sha256('ImageSigningChallenge'+image_data), account_private_posting_key)
 ```
 
-Creating a signature (node.js & [dsteem](https://github.com/jnordberg/dsteem))
+Creating a signature (node.js & [dpayts](https://github.com/dpays/dpayts))
 
 ```js
 #!/usr/bin/env node
 
-const dsteem = require('dsteem')
+const dpayts = require('dpayts')
 const crypto = require('crypto')
 const fs = require('fs')
 
@@ -112,7 +112,7 @@ if (!wif || !file) {
 }
 
 const data = fs.readFileSync(file)
-const key = dsteem.PrivateKey.fromString(wif)
+const key = dpayts.PrivateKey.fromString(wif)
 const imageHash = crypto.createHash('sha256')
     .update('ImageSigningChallenge')
     .update(data)
