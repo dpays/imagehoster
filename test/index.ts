@@ -1,6 +1,6 @@
 import 'mocha'
 import * as assert from 'assert'
-import {PrivateKey} from 'dsteem'
+import {PrivateKey} from 'dpayts'
 
 import {rpcClient} from './../src/common'
 
@@ -31,7 +31,7 @@ export const mockAccounts: any = {
 }
 
 before(() => {
-    // mock out dsteem rpc calls
+    // mock out dpayts rpc calls
     const _client = rpcClient as any
     _client.call = async (api: string, method: string, params = []) => {
         const apiMethod = `${ api }-${ method }`
